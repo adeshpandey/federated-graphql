@@ -1,0 +1,26 @@
+version: "3"
+services:
+  user:
+    build: .
+    image: adeshpandey/ariadne
+    volumes:
+      - ./:/app
+    command: [ "uvicorn", "user_service:app", "--host", "0.0.0.0" ]
+  products:
+    image: adeshpandey/ariadne
+    volumes:
+      - ./:/app
+    command: [ "uvicorn", "product_service:app", "--host", "0.0.0.0" ]
+    depends_on:
+      - user
+  reviews:
+    image: adeshpandey/ariadne
+    volumes:
+      - ./:/app
+    command: [ "uvicorn", "review_service:app", "--host", "0.0.0.0" ]
+    depends_on:
+      - user
+  router:
+    build: ./apollo-router
+    ports:
+      - 4000:4000

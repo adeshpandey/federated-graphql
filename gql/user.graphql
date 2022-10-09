@@ -1,0 +1,15 @@
+type Query {
+    me: User
+  }
+  type User @key(fields: "email") {
+    id: ID!
+    name: String
+    email: String!
+  }
+
+query{
+  me{
+    name
+    email
+  }
+}
