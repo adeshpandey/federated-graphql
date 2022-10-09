@@ -5,7 +5,7 @@ A federated GraphQL application using FastAPI, Ariadne and Apollo Router
 
     docker-compsoe up
 
-### How can I run wihout docker
+### How can I run without docker
 
 * run individual apps with uviron like as follows:
   * uviron user_service:app --port 8000
